@@ -12,3 +12,4 @@ exports.index = (request, response) => {
 exports.post = (request, response) => {
   return response.status(201).json(request.body)
 }
+
