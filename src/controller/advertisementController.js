@@ -9,7 +9,7 @@ exports.index = (request, response) => {
   })
 }
 
-exports.post = (request, response) => {
-  return response.status(201).json(request.body)
+exports.create = (request, response) => {
+  const {name, client, dataStart, dataExpirated, investiment} = request.body
+  return response.status(201).json({name, client})
 }
-
