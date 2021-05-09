@@ -3,6 +3,6 @@ const router = express()
 const controller = require('../controller/advertisementController')
 
 router.get('/anuncios', controller.index)
-router.post('/anuncios')
+router.post('/anuncios', controller.post)
 
 module.exports = router
