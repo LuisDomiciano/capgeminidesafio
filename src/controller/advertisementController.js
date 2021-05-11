@@ -1,15 +1,21 @@
+const advertisementModel = require('../model/advertisement')
 exports.index = (request, response) => {
-  return response.status(200).send({
-    id: 1,
-    name: 'Capgemine Programa de Formação',
-    client: 'Capgemine',
-    dateStart: '22/04/2021',
-    dataExpirated: '22/05/2021',
-    investiment: 2.500
-  })
+  advertisementModel.find({})
+    .then(data => {
+      response.status(200).send(data)
+    })
+    .catch(error => {
+      response.status(400).send(error)
+    })
 }
 
 exports.create = (request, response) => {
-  const {name, client, dataStart, dataExpirated, investiment} = request.body
-  return response.status(201).json({name, client})
+  const advertisement = advertisementModel(request.body)
+  advertisement.save()
+    .then(data => {
+      response.status(201).send({ message: 'Anúncio cadastrado com sucesso!'})
+    })
+    .catch(error => {
+      response.status(400).send({ message: 'Falha ao cadastrar anúncio\n', error})
+    }) 
 }

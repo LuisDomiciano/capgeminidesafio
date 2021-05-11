@@ -9,11 +9,11 @@ server.use(express.json())
 server.use('/', advertisementRouter)
 
 mongoose.connect(process.env.URI_BD, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 }).then(()=> console.log('Conexao bem sucedida'))
   .catch(error => console.log('Falha ao conectar a base de dados\n', error))
 
 server.listen(port, ()=> {
   console.log('Server is running')
-  console.log(port)
 })
