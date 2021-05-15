@@ -16,7 +16,7 @@ Anúncio contém:
 - Mongoose
 - nvm
 
-## Clonando o repositório e rodando o projeto
+## Clonando o repositório e instalando dependências
 ```
 git clone https://github.com/LuisDomiciano/capgeminidesafio.git
 cd capgeminidesafio
@@ -25,3 +25,9 @@ npm install
 Crie um arquivo .env na raíz do projeto e copie e edite o conteúdo do .env.example inserindo o número da porta e a url do banco de dados:
 ### Exemplo
 <p>PORT= 3000</br>URI_BD=mongodb://localhost:27017/teste</p>
+
+## Rodando o projeto
+Execute o comando:
+```
+npm run dev
+```
