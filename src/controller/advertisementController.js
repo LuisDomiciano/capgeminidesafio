@@ -32,3 +32,14 @@ exports.update = (request, response) => {
      response.status(400).send({message: 'Falha ao atualizar anúncio\n', error})
   })
 }
+
+exports.remove = (request, response) => {
+  const id = request.params.id
+  advertisementModel.findByIdAndDelete(id, request.body)
+  .then(data => {
+    response.status(200).send({message: 'Anúncio excluído com sucesso!\n', data})
+  })
+  .catch(error => {
+    response.status(400).send({message: 'Falha ao deletar anúncio!\n', error})
+  })
+}
