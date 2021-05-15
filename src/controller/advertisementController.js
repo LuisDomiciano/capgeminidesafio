@@ -19,3 +19,16 @@ exports.create = (request, response) => {
       response.status(400).send({ message: 'Falha ao cadastrar anúncio\n', error})
     }) 
 }
+
+exports.update = (request, response) => {
+  const id = request.params.id
+  advertisementModel.findByIdAndUpdate(id, request.body, {
+    new: true
+  })
+  .then(data => {
+    response.status(200).send({message: 'Anúncio atualizado com sucesso!\n', data})
+  })
+  .catch(error => {
+     response.status(400).send({message: 'Falha ao atualizar anúncio\n', error})
+  })
+}

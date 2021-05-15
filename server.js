@@ -6,6 +6,7 @@ const advertisementRouter = require('./src/route/routes')
 const mongoose = require('mongoose')
 
 server.use(express.json())
+server.use(express.urlencoded({extended: false}))
 server.use('/', advertisementRouter)
 
 mongoose.connect(process.env.URI_BD, {
